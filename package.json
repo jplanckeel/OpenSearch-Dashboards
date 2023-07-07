@@ -451,7 +451,7 @@
     "simple-git": "^3.16.0",
     "sinon": "^7.4.2",
     "strip-ansi": "^6.0.0",
-    "stylelint": "^14.5.2",
+    "stylelint": "^15.10.1",
     "stylelint-config-standard-scss": "^3.0.0",
     "supertest": "^6.3.3",
     "supertest-as-promised": "^4.0.2",
