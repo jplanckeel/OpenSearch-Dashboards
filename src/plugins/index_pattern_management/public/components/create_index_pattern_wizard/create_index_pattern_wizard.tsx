@@ -143,7 +143,7 @@ export class CreateIndexPatternWizard extends Component<
     // query local and remote indices, updating state independently
     ensureMinimumTime(
       this.catchAndWarn(
-        getIndices({ http, getIndexTags, pattern: '*', searchClient }),
+        getIndices({ http, getIndexTags, pattern: '*', searchClient, skipCCS: true }),
 
         [],
         indicesFailMsg
@@ -155,7 +155,7 @@ export class CreateIndexPatternWizard extends Component<
     this.catchAndWarn(
       // if we get an error from remote cluster query, supply fallback value that allows user entry.
       // ['a'] is fallback value
-      getIndices({ http, getIndexTags, pattern: '*:*', searchClient }),
+      getIndices({ http, getIndexTags, pattern: '*:*', searchClient, skipCCS: true }),
 
       ['a'],
       clustersFailMsg

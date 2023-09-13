@@ -130,7 +130,6 @@ export const IndexPatternTable = ({ canSave, history }: Props) => {
     })();
   }, [
     history.push,
-    indexPatterns.length,
     indexPatternManagementStart,
     uiSettings,
     savedObjects.client,
@@ -155,10 +154,10 @@ export const IndexPatternTable = ({ canSave, history }: Props) => {
       setSources(dataSources.filter(removeAliases));
       setIsLoadingSources(false);
     });
-    getIndices({ http, pattern: '*:*', searchClient }).then((dataSources) =>
+    getIndices({ http, pattern: '*:*', searchClient, skipCCS: true }).then((dataSources) =>
       setRemoteClustersExist(!!dataSources.filter(removeAliases).length)
     );
-  }, [http, creationOptions, searchClient]);
+  }, []);
 
   chrome.docTitle.change(title);
 
